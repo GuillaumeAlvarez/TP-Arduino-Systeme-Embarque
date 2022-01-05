@@ -20,8 +20,12 @@
 
 // #define PORTB
 
+// void setup() {
+//     pinMode(LED, OUTPUT);
+// }
+
 void setup() {
-    pinMode(LED, OUTPUT);
+    DDRB =  DDRB | (1 << 5);
 }
 
 void ledOn() {
