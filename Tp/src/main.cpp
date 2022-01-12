@@ -29,16 +29,17 @@ void setup() {
 }
 
 void ledOn() {
-  PORTB = PORTB | (1 << 5);
+  PORTB = PORTB | (1 << 5);//passage du bit 5 à 1
 }
 
 void ledOff() {
-  PORTB = PORTB & ~ (1 << 5);
+  PORTB = PORTB & ~ (1 << 5);//passage du bit 5 à 0 car AND NOT (...)
 }
 
+void ledToggle() {
+    PINB |= (1 << 5);
+}
 void loop() {
-    digitalWrite(LED, HIGH);
-    delay(1000);
-    digitalWrite(LED, LOW);
+    ledToggle();
     delay(1000);
 }
