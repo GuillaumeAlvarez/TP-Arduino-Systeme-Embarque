@@ -24,6 +24,7 @@
 //     pinMode(LED, OUTPUT);
 // }
 
+//mettre à 1 le bit 5 car la LED qu'on veut allumer correspond au PB5
 void setup() {
     DDRB =  DDRB | (1 << 5);
 }
@@ -41,5 +42,9 @@ void ledToggle() {
 }
 void loop() {
     ledToggle();
-    delay(1000);
+    // delay(1000);
+    TCCR1A = 0;
+    TCCR1B = 13;//1101
+    TIMSK1 = 2;//10
+    //Fréquence / prescaler (1024 ici) --> fréquence 16 000 000 / 1024 = 26625 
 }
